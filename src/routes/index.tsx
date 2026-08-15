@@ -43,6 +43,68 @@ const stats = [
   { value: "7", label: "Days a week, open early" },
 ];
 
+const deals = [
+  {
+    tag: "Save 20%",
+    name: "Sunflower Cooking Oil 5L",
+    was: "KSh 1,650",
+    now: "KSh 1,320",
+    img: household,
+    note: "Offer runs Mon – Sun this week",
+  },
+  {
+    tag: "Buy 2 Get 1",
+    name: "Assorted Juices 1L",
+    was: "KSh 210 each",
+    now: "3 for KSh 420",
+    img: drinks,
+    note: "Mix and match any flavour",
+  },
+  {
+    tag: "Fresh Deal",
+    name: "Pineapples & Seasonal Fruit",
+    was: "KSh 180",
+    now: "KSh 130",
+    img: produce,
+    note: "Delivered fresh every morning",
+  },
+  {
+    tag: "Bundle",
+    name: "Tissue 10-Pack + Detergent",
+    was: "KSh 1,100",
+    now: "KSh 899",
+    img: tissue,
+    note: "While stocks last",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "I do my whole month's shopping here in one trip. Prices are fair and the fresh section is always well stocked.",
+    name: "Mercy W.",
+    role: "Kitale shopper",
+  },
+  {
+    quote:
+      "The staff actually help you find things instead of pointing. That's why my family keeps coming back.",
+    name: "Josphat K.",
+    role: "Regular customer, Eldoret",
+  },
+  {
+    quote:
+      "We furnished our sitting room and bought groceries the same afternoon. You can't beat that convenience.",
+    name: "Aisha M.",
+    role: "Kitale Town",
+  },
+];
+
+const orderSteps = [
+  { step: "1", title: "Send your list", text: "WhatsApp or call your shopping list to our order desk." },
+  { step: "2", title: "We pick it fresh", text: "Our team picks, weighs and packs your basket the same day." },
+  { step: "3", title: "Delivery or pickup", text: "Free delivery within Kitale town on orders above KSh 3,000." },
+];
+
 function Index() {
   return (
     <div className="min-h-screen bg-background">
@@ -59,6 +121,8 @@ function Index() {
           </a>
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground md:flex">
             <a className="transition-colors hover:text-brand" href="#departments">Departments</a>
+            <a className="transition-colors hover:text-brand" href="#deals">Weekly deals</a>
+            <a className="transition-colors hover:text-brand" href="#order">Order online</a>
             <a className="transition-colors hover:text-brand" href="#why">Why Transmatt</a>
             <a className="transition-colors hover:text-brand" href="#branches">Branches</a>
           </nav>
@@ -168,6 +232,135 @@ function Index() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section id="deals" className="bg-secondary/60 py-20">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">This week&apos;s deals</p>
+                <h2 className="text-balance-tight mt-3 text-3xl font-extrabold sm:text-4xl">
+                  Offers that fill the trolley for less
+                </h2>
+                <p className="mt-4 text-muted-foreground">
+                  New promotions every Monday across groceries, drinks, fresh produce and home care.
+                </p>
+              </div>
+              <span className="rounded-full border border-brand-red/30 bg-background px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-brand-red">
+                Valid this week
+              </span>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {deals.map((d) => (
+                <article
+                  key={d.name}
+                  className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-transform hover:-translate-y-1"
+                >
+                  <div className="relative">
+                    <img src={d.img.url} alt={d.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
+                    <span className="absolute left-3 top-3 rounded-full bg-brand-red px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-primary-foreground">
+                      {d.tag}
+                    </span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="text-base font-bold">{d.name}</h3>
+                    <p className="mt-2 flex items-baseline gap-2">
+                      <span className="text-lg font-extrabold text-brand">{d.now}</span>
+                      <span className="text-sm text-muted-foreground line-through">{d.was}</span>
+                    </p>
+                    <p className="mt-auto pt-3 text-xs text-muted-foreground">{d.note}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="order" className="mx-auto max-w-6xl px-5 py-20">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Order &amp; delivery</p>
+              <h2 className="text-balance-tight mt-3 text-3xl font-extrabold sm:text-4xl">
+                Shop from home — we deliver in Kitale
+              </h2>
+              <p className="mt-4 text-muted-foreground">
+                Too busy to come in? Send us your list and we&apos;ll do the shopping for you.
+              </p>
+              <ol className="mt-8 space-y-6">
+                {orderSteps.map((s) => (
+                  <li key={s.step} className="flex gap-4">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-primary-foreground">
+                      {s.step}
+                    </span>
+                    <div>
+                      <h3 className="font-bold">{s.title}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://wa.me/254700000000"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full bg-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-lift transition-transform hover:-translate-y-0.5"
+                >
+                  Order on WhatsApp
+                </a>
+                <a
+                  href="tel:+254700000000"
+                  className="rounded-full border border-border px-6 py-3 text-sm font-bold transition-colors hover:bg-secondary"
+                >
+                  Call the order desk
+                </a>
+              </div>
+            </div>
+            <div className="gradient-brand rounded-3xl p-8 text-primary-foreground shadow-lift">
+              <h3 className="text-xl font-extrabold">Delivery at a glance</h3>
+              <dl className="mt-6 space-y-4 text-sm">
+                {[
+                  ["Delivery window", "Same day, 10am – 7pm"],
+                  ["Free delivery", "Orders above KSh 3,000 in Kitale town"],
+                  ["Standard fee", "KSh 200 within town, KSh 350 outskirts"],
+                  ["Payment", "M-Pesa on delivery or pay in store"],
+                ].map(([k, v]) => (
+                  <div key={k} className="flex justify-between gap-4 border-b border-primary-foreground/20 pb-3">
+                    <dt className="text-primary-foreground/75">{k}</dt>
+                    <dd className="text-right font-semibold">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-xs text-primary-foreground/70">
+                Click &amp; collect also available — order ahead and pick up at the customer service desk.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="border-y border-border bg-card py-20">
+          <div className="mx-auto max-w-6xl px-5">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Customer stories</p>
+              <h2 className="text-balance-tight mt-3 text-3xl font-extrabold sm:text-4xl">
+                What shoppers say about us
+              </h2>
+            </div>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {testimonials.map((t) => (
+                <figure key={t.name} className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-brand-red" aria-label="5 out of 5 stars">★★★★★</div>
+                  <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-5 text-sm">
+                    <span className="font-bold">{t.name}</span>
+                    <span className="block text-xs text-muted-foreground">{t.role}</span>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
 
