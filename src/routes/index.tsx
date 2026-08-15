@@ -255,7 +255,7 @@ function Index() {
               {deals.map((d) => (
                 <article
                   key={d.name}
-                  className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lift/50 transition-transform hover:-translate-y-1"
+                  className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-transform hover:-translate-y-1"
                 >
                   <div className="relative">
                     <img src={d.img.url} alt={d.name} className="aspect-4/3 w-full object-cover" loading="lazy" />
