@@ -1,14 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import logo from "@/assets/logo.jpg.asset.json";
-import banner from "@/assets/banner.jpg.asset.json";
-import storefront from "@/assets/storefront.jpg.asset.json";
-import drinks from "@/assets/drinks.jpg.asset.json";
-import produce from "@/assets/produce.jpg.asset.json";
-import household from "@/assets/household.jpg.asset.json";
-import tissue from "@/assets/tissue.jpg.asset.json";
-import furniture from "@/assets/furniture.jpg.asset.json";
-import staff from "@/assets/staff.jpg.asset.json";
-import shoppers from "@/assets/shoppers.jpg.asset.json";
+const logo = { url: "/images/logo.jpg" };
+const banner = { url: "/images/banner.jpg" };
+const storefront = { url: "/images/storefront.jpg" };
+const drinks = { url: "/images/drinks.jpg" };
+const produce = { url: "/images/produce.jpg" };
+const household = { url: "/images/household.jpg" };
+const tissue = { url: "/images/tissue.jpg" };
+const furniture = { url: "/images/furniture.jpg" };
+const staff = { url: "/images/staff.jpg" };
+const shoppers = { url: "/images/shoppers.jpg" };
 
 const title = "Transmatt Supermarket Kitale | Your One Stop Shopping Mart";
 const description =
