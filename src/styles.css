@@ -140,5 +140,36 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   }
+
+  h1, h2, h3, h4 {
+    font-family: "Archivo", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@theme {
+  --color-brand: oklch(0.44 0.16 268);
+  --color-brand-deep: oklch(0.31 0.13 268);
+  --color-brand-red: oklch(0.52 0.21 27);
+}
+
+@utility gradient-brand {
+  background-image: linear-gradient(
+    120deg,
+    oklch(0.31 0.13 268),
+    oklch(0.44 0.16 268) 55%,
+    oklch(0.52 0.21 27)
+  );
+}
+
+@utility shadow-lift {
+  box-shadow:
+    0 1px 2px oklch(0.31 0.13 268 / 0.08),
+    0 18px 40px -22px oklch(0.31 0.13 268 / 0.45);
+}
+
+@utility text-balance-tight {
+  text-wrap: balance;
 }
